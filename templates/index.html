@@ -1,0 +1,135 @@
+<htmL>
+<head>
+    <title>SPARK</title>
+    <link rel="shortcut icon" href="https://thumbs.dreamstime.com/z/parking-fines-abstract-concept-vector-illustration-no-parking-zone-restricted-place-penalty-charge-notice-rules-violation-fine-192480626.jpg">
+    <style>
+        body{
+            background-color:rgb(165, 86, 86);
+   background-size: cover;
+   background-image: url("https://img.freepik.com/free-vector/black-white-watercolor-background_125540-955.jpg?w=2000");
+   
+        }
+    #main{
+        background-color:rgb(234, 186, 97);
+        width:80%;
+        padding:10px;
+      text-align:center;
+      margin:auto;
+    margin-top:50;
+    border-radius:30px;
+    padding-bottom:20px; background-image:url("https://media.istockphoto.com/id/1188030698/photo/the-gray-and-silver-are-light-black-with-white-the-gradient-is-the-surface-with-templates.jpg?b=1&s=170667a&w=0&k=20&c=X8fwVaGuN0LQztu9YwWE1ESQB5nQIn01Py4Mdj6HY1w=");
+          
+   background-size:cover;
+    z-index:-1;
+    }
+    table{
+    width:70%;
+    height:600px;
+    border-collapse:collapse;
+    border:3px solid black;
+    border-radius:10px;
+    background-image: url("https://media.istockphoto.com/id/1188030698/photo/the-gray-and-silver-are-light-black-with-white-the-gradient-is-the-surface-with-templates.jpg?b=1&s=170667a&w=0&k=20&c=X8fwVaGuN0LQztu9YwWE1ESQB5nQIn01Py4Mdj6HY1w=");
+  z-index:-1;
+  background-size:cover;
+    }
+    td,th{
+        text-align: center;
+        border:3px solid black;
+    }
+    th{
+      font-size:28;
+      font-weight:1000;
+
+    }
+    td{
+        font-size:20;
+        font-weight:900;
+
+    }
+    input.submit{
+        height:50px;
+        width:30%;
+        background-color:rgb(33, 32, 32);
+        color:white;
+         text-align: center;
+        border-radius: 10px;
+        font-weight:500;
+        font-size:23;
+        border: 2px solid black;
+
+
+    }
+    label{
+        height:40px;
+        width:40%;
+        display:block;
+        margin:auto;
+        background-color:rgb(33, 32, 32);
+        color:white;
+        border-radius: 10px;
+        font-weight:500;
+        font-size:23;
+        border: 2px solid black;
+        padding-top:15px;
+  align-items: center; 
+ text-align: center;
+    }
+    img{
+        width:400;
+        height:400;
+        border-radius:13px;
+    }
+    span{
+        font-size:45;
+        color:rgb(184, 184, 184);
+        font-weight:1000;
+      
+        
+    }
+    .logo{
+        position:absolute;
+        margin-left:-105px;
+        width:100px;
+        height:100px;
+        border-radius: 15px;
+        margin-top:-13px;
+    }
+    </style>
+</head>
+
+        <body><br><br>
+        <CENTER><img class="logo" src="https://thumbs.dreamstime.com/z/parking-fines-abstract-concept-vector-illustration-no-parking-zone-restricted-place-penalty-charge-notice-rules-violation-fine-192480626.jpg">&nbsp;&nbsp;<span>Parking Violation Management and Alert System </span></CENTER>
+<br>
+        <div id="main">
+<br><br>
+         <form method="POST" action="/home" enctype="multipart/form-data" >
+         <input type="file" name="file" id="filename" accept=".png, .jpg, .jpeg" title=" " style="display:none;" required>
+         <label for="filename">Select an Image</label>
+ <BR><BR>
+             <input type="submit" value="Upload" class="submit"><br>
+
+         </form>
+<br>
+        <br>
+            {% if flag %}
+         <center> <h2 style="font-size:30;color:red;">Please upload the correct image !!</h2> </center>
+           {% elif flag1 %}
+            <center> <h2 style="font-size:30;color:red;">Vehicle not registered !!</h2> </center>
+         {% elif filename %}
+           <img src="data:/image/jpeg;base64,{{filename}}" width="300" height="300">
+<BR><br><br>
+    <center>
+        <table border="2"><tr class="first"><th colspan="2" cellspacing="0" cellpadding="0">Details</th></tr>
+
+            <tr><td>Plate Number</td><td>{{plate}}</td></tr>
+            <tr><td>Name </td><td>{{name}}</td></tr>
+            <tr><td>License Number </td><td>{{licenseno}}</td></tr>
+            <tr><td>Address </td><td>{{address}}</td></tr>
+            <tr><td>Phone Number</td><td>{{ph}}</td></tr>
+            <tr><td>Warning </td><td>{{warning}}</td></tr>
+            <tr><td>Fine Due </td><td>{{fine}}</td></tr>
+         {% endif %}
+        </table></center></div>
+        <br><br>
+        </body>
+</htmL>
